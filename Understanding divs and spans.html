@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)http://localhost:63342/PythonCourse/CSSLesson6.html?_ijt=202p0lrp35i23q66643p0h47q8 -->
+<html style="
+    background-color: darkorange;
+"><!--
+divs and spans are content free containers which can hold other html
+elements. Their only purpose is to provide logical containers to divide
+sections of the html document. div is a block element (think of it as having a
+new line before and after) and span is an inline element.
+
+http://www.w3.org/TR/html401/struct/global.html#h-7.5.3
+
+Each division can be applied a style that applies to the elements
+in that division.
+
+This avoids to use other elements like tables just to create a multi column
+layout.
+
+Read: https://en.wikipedia.org/wiki/Span_and_div
+--><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- useful in development mode for incremental testing -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Understanding divs and spans</title>
+    <style type="text/css">
+        div {
+            border: solid thick green;
+        }
+
+        span {
+            border: solid thick darkred;
+        }
+
+        /*
+        First see how it is rendered and understand div and span.
+
+        Use firebug to figure out the default values of margin and padding for
+        divs and spans (computed tab).
+
+        Exercise: add additional id based css rules and other rules
+        to create a layout as shown in image.
+        */
+    </style>
+</head>
+<body style="
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    /* bottom: unset; */
+    height: 60px;
+">
+<div id="outerdiv" style="
+    padding-left: 9px;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 50px;
+    background-color:  cornflowerblue;
+    position: absolute;
+    position: 5px;
+    position:  5px;
+">
+    This is some text in the outer div element. We also have <span style="
+    width: 100px;
+    height: 100px;
+    padding-left: 0px;
+    /* background-color: green; */
+">some span
+    text</span> in the outer div.
+    <div id="innerdiv" style="
+    background-color: grey;
+    width: 300px;
+    position:  relative;
+    border-color: green;
+    /* position: unset; */
+    bottom: 5px;
+    border-bottom-width: 3.333;
+">
+        This is some more text within an inner div. How is this rendered
+        differently than a span?
+    </div>
+    <span id="outerspan">
+        This is some text in a span and <span id="innerspan" style="
+    background-color:  orange;
+">we have an inner
+        span as well</span>
+    </span>
+    This makes it clear that a block level element like a div can container
+    other block or inline elements. It is not valid for you to include
+
+    <!--
+    Uncomment this and see that pycharm will give a warning in the gutter bar.
+    It is not valid to have block elements inside inline elements like a spans
+    even if browsers render them.
+    <span> Hello <div> there</div> you fool</span>
+    -->
+
+</div>
+
+
+</body></html>

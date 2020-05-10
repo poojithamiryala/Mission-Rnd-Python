@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+input[type=button]
+{
+width:100px;
+height:100px;
+background-color:black;
+color:white;
+}
+</style>
+<script>
+    var i=0;
+    var c=0;
+    var users=['X','A'];
+    var grid=[-1,-1,-1,-1,-1,-1,-1,-1,-1]
+    var grid1=[0,0,0,0,0,0,0,0,0]
+    function fun(ch)
+    {
+        position=parseInt(ch);
+        if(i==0)
+        {
+            document.getElementById('9').disabled=true;
+        }
+        else
+        {
+            document.getElementById('9').disabled=false;
+        }
+        if(i==8)
+            document.getElementById('10').disabled=true;
+        else
+            document.getElementById('10').disabled=false;
+        if(position<9)
+        {
+            if(document.getElementById(ch).disabled!=true)
+            {
+                grid[i]=position;
+                i++;
+                drawArray();
+                checkWinCondition();
+				if(i==1)
+				{
+					document.getElementById('9').disabled=false;
+				}
+            }
+        }
+        else
+        {
+            if(position==9)
+            {
+                if(i!=0 && grid[i-1]!=-1)
+                   i--;
+            }
+            if(position==10)
+            {
+                if(i!=8 && grid[i]!=-1)
+                    i++;
+            }
+            drawArray();
+        }
+		if(i==9)
+		{
+			alert("Game Over!!");
+			setTimeout("location.reload();",2000);
+		}
+    }
+    function drawArray()
+    {
+        var j=0;
+        var t=0;
+        for(j=0;j<9;j++)
+        {
+            if(j>=i)
+            {
+                if(grid[j]!=-1)
+                {
+                    var ch=grid[j].toString();
+                    document.getElementById(ch).value='';
+                    document.getElementById(ch).disabled=false;
+                    grid1[grid[j]]=0;
+                }
+            }
+            else
+            {
+                var ch=grid[j].toString();
+                if(j%2==0)
+                {
+                    grid1[ch]=1;
+                    document.getElementById(ch).value='X';
+                    document.getElementById(ch).disabled=true;
+                 }
+                else
+                {
+                    grid1[ch]=2;
+                    document.getElementById(ch).value='A';
+                    document.getElementById(ch).disabled=true;
+                }
+            }
+        }
+    }
+    function checkWinCondition()
+    {
+        var n=0;
+        while(n<9)
+        {
+            if(grid1[n]!=0 && grid1[n]==grid1[n+1] && grid1[n+1]==grid1[n+2])
+            {
+                if(grid1[n]==1)
+                {
+                    alert("X is Winner");
+					setTimeout("location.reload();",2000);
+                }
+                if(grid1[n]==2)
+                {
+                    alert("A is Winner");
+					setTimeout("location.reload();",2000);
+                }
+            }
+            n=n+3;
+        }
+        n=0;
+        while(n<3)
+        {
+            if(grid1[n]!=0 && grid1[n]==grid1[n+3] && grid1[n+3]==grid1[n+6])
+            {
+                if(grid1[n]==1)
+                {
+                    alert("X is Winner");
+					setTimeout("location.reload();",2000);
+                }
+                if(grid1[n]==2)
+                {
+                    alert("A is Winner");
+					setTimeout("location.reload();",2000);
+                }
+            }
+            n=n+1;
+        }
+        if(grid1[0]!=0 && grid1[0]==grid1[4] && grid1[4]==grid1[8])
+        {
+                if(grid1[0]==1)
+                {
+                    alert("X is Winner");
+					setTimeout("location.reload();",2000);
+                }
+                if(grid1[0]==2)
+                {
+                    alert("A is Winner");
+					setTimeout("location.reload();",2000);
+                }
+        }
+        if(grid1[2]!=0 && grid1[2]==grid1[4] && grid1[4]==grid1[6])
+        {
+                if(grid1[2]==1)
+                {
+                    alert("X is Winner");
+					setTimeout("location.reload();",2000);
+                }
+                if(grid1[2]==2)
+                {
+                    alert("A is Winner");
+					setTimeout("location.reload();",2000);
+                }
+        }
+    }
+</script>
+<body>
+<br>
+<h1 style="text-align:center">Tic Tac Toe</h1>
+<br>
+<br>
+<center>
+    <form>
+	<table border='1'>
+           <tr>
+			<td><input type="button" id="0" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="1" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="2" onclick="fun(this.id)"></input></td>
+     </tr>
+	 <tr>
+			
+            <td><input type="button" id="3" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="4" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="5" onclick="fun(this.id)"></input></td>
+        </tr>
+		<tr>
+            <td><input type="button" id="6" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="7" onclick="fun(this.id)"></input></td>
+            <td><input type="button" id="8" onclick="fun(this.id)"></input></td>
+        </tr>
+	</table>
+	<br>
+		 <input type="button" id="9" onclick="fun(this.id)" value="Left"></input>&nbsp;&nbsp;
+         <input type="button" id="10" onclick="fun(this.id)" value="right"></input>
+    </form>
+</center>
+</body>
+</html>

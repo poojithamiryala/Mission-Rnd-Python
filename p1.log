@@ -1,0 +1,10 @@
+2018-05-15 20:22:09,702:p1.m1:entering method f1
+2018-05-15 20:22:09,702:p1.m1:error in method f1
+2018-05-15 20:22:09,702:p1.m1:
+2018-05-15 20:22:09,702:p1.m1:entering method f2
+2018-05-15 20:22:09,702:p1.m1:warning in method f2
+2018-05-15 20:22:09,702:p1.m1:exiting method f2
+2018-05-15 20:22:09,702:p1.m3:entering method f5
+2018-05-15 20:22:09,702:p1.m3:exiting method f5
+2018-05-15 20:22:09,702:p1.p3.m4:entering method f6
+2018-05-15 20:22:09,702:p1.p3.m4:exiting method f6

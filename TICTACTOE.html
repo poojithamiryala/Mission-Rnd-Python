@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table tr,td
+    {
+    width:100px;
+    height:100px;
+    background-color:black;
+    }
+    button
+    {
+     width:100px;
+    height:100px;
+    background-color:pink;
+    }
+</style>
+<script>
+    var i=0;
+    var users=['X','A'];
+    var curpos=0;
+
+    var grid=[[0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0]];
+    var position;
+    function fun(ch)
+    {
+        position=parseInt(ch);
+        alert(position+" "+i+" ");
+        if(position<9)
+        {
+            if(i%2==0 && grid[curpos][position]==0)
+            {
+                document.getElementById(ch).value='X';
+                grid[curpos][position]=1;
+                checkWinCondition();
+                i++;
+            }
+            else if(i%2!=0 && grid[curpos][position]==0)
+            {
+                document.getElementById(ch).value='A';
+                grid[curpos][position]=2;
+                checkWinCondition();
+                i++;
+            }
+        }
+        else
+        {
+
+        curpos--;
+
+        }
+    }
+    function checkWinCondition()
+    {
+        var n=0;
+        while(n<9)
+        {
+            if(grid[curpos][n]!=0 && grid[curpos][n]==grid[curpos][n+1] && grid[curpos][n+1]==grid[curpos][n+2])
+            {
+                if(grid[curpos][n]==1)
+                {
+                    alert("X is Winner");
+                }
+                if(grid[curpos][n]==2)
+                {
+                    alert("A is Winner");
+                }
+            }
+            n=n+3;
+        }
+        n=0;
+        while(n<3)
+        {
+            if(grid[curpos][n]!=0 && grid[curpos][n]==grid[curpos][n+3] && grid[curpos][n+3]==grid[curpos][n+6])
+            {
+                if(grid[curpos][n]==1)
+                {
+                    alert("X is Winner");
+                }
+                if(grid[curpos][n]==2)
+                {
+                    alert("A is Winner");
+                }
+            }
+            n=n+1;
+        }
+        if(grid[curpos][0]!=0 && grid[curpos][0]==grid[curpos][4] && grid[curpos][4]==grid[curpos][8])
+        {
+                if(grid[curpos][0]==1)
+                {
+                    alert("X is Winner");
+                }
+                if(grid[curpos][0]==2)
+                {
+                    alert("A is Winner");
+                }
+        }
+        if(grid[curpos][2]!=0 && grid[curpos][2]==grid[curpos][4] && grid[curpos][4]==grid[curpos][6])
+        {
+                if(grid[curpos][2]==1)
+                {
+                    alert("X is Winner");
+                }
+                if(grid[curpos][2]==2)
+                {
+                    alert("A is Winner");
+                }
+        }
+    }
+</script>
+<body>
+<br>
+<h1 style="text-align:center">Tic Tac Toe</h1>
+<br>
+<br>
+<center>
+    <form>
+            <input type="button" id="0" onclick="fun(this.id)"></input>
+            <input type="button" id="1" onclick="fun(this.id)"></input>
+            <input type="button" id="2" onclick="fun(this.id)"></input>
+       <br><br>
+            <input type="button" id="3" onclick="fun(this.id)"></input>
+            <input type="button" id="4" onclick="fun(this.id)"></input>
+            <input type="button" id="5" onclick="fun(this.id)"></input>
+        <br><br>
+            <input type="button" id="6" onclick="fun(this.id)"></input>
+            <input type="button" id="7" onclick="fun(this.id)"></input>
+            <input type="button" id="8" onclick="fun(this.id)"></input>
+    </form>
+</center>
+<button id="prev" style="position: relative;
+    left: 334px;
+    top: 11px;"><img src="leftarrow.png" width="25px" height="25px"></button>
+<button id="next" style="position: relative;
+    left: 710px;
+    top: 11px;"><img src="rightarrow.png" width="25px" height="25px"></button>
+</body>
+</html>

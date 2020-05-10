@@ -1,0 +1,6 @@
+aa : ab 
+ab : aa 
+bc : ab 
+cd : bc 
+de : cd 
+ef : de 

@@ -1,0 +1,14 @@
+2018-05-15 20:22:09,702:__main__:Entering Main:{}
+2018-05-15 20:22:09,702:__main__:In Main:entering method f1
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f1
+2018-05-15 20:22:09,702:__main__:In Main:entering method f2
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f2
+2018-05-15 20:22:09,702:__main__:In Main:entering method f3
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f3
+2018-05-15 20:22:09,702:__main__:In Main:entering method f4
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f4
+2018-05-15 20:22:09,702:__main__:In Main:entering method f5
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f5
+2018-05-15 20:22:09,702:__main__:In Main:entering method f6
+2018-05-15 20:22:09,702:__main__:In Main:exiting method f6
+2018-05-15 20:22:09,702:__main__:Exiting main
